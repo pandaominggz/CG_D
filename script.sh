@@ -4,4 +4,6 @@
 
 # ssh root@49.234.217.136
 
-#  scp -r root@49.234.217.136:/root/CG_D /home/daoming/Desktop/result/
+# scp -r ubuntu@172.17.0.6:/home/ubuntu/CG_D /home/daoming/Desktop/result/
+
+# # sudo scp root@172.17.0.9:/root/CG_D/checkpoint/ckpt.t7 /home/ubuntu/CG_D/checkpoint/
