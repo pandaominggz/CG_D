@@ -123,9 +123,10 @@ def train(epoch_total,loadstate):
                 for j in range(batch):
                     im = result[j, :, :, :].data.cpu().numpy().astype('uint8')
                     im = np.transpose(im, (1, 2, 0))
-                    cv2.imwrite('/home/ubuntu/CG_D/train_result_'+name[j]+'.png', im, [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
+                    a = name[j].split('/')[-1].split('.')[0]
+                    cv2.imwrite('/home/ubuntu/CG_D/train_result_'+a+'.png', im, [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
                     gt = np.transpose(dispL[j, :, :, :].data.cpu().numpy(), (1, 2, 0))
-                    cv2.imwrite('/home/ubuntu/CG_D/train_gt_'+name[j]+'.png', gt, [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
+                    cv2.imwrite('/home/ubuntu/CG_D/train_gt_'+a+'.png', gt, [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
 
     fp=open('/home/ubuntu/CG_D/loss.txt','w')
     fa= open('/home/ubuntu/CG_D/acc.txt','w')
@@ -189,7 +190,7 @@ def test(loadstate):
     return disp
 
 def main():
-    epoch_total=100
+    epoch_total=1000
     load_state=True
     train(epoch_total,load_state)
     # test(load_state)
